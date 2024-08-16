@@ -1,4 +1,4 @@
-use anchor_lang::{prelude::*, solana_program::system_program};
+use anchor_lang::prelude::*;
 
 declare_id!("RdLv4EnP3EYz9J7qh7YfFGyf6emEgysvA1asA6fFkmS");
 
@@ -18,7 +18,7 @@ pub mod sol_talks {
         if content.chars().count() > 280 {
            return  Err(ErrorCode::MaxLimit.into());
         }
-        
+
         tweet.author = *author.key;
         tweet.timestamp = clock.unix_timestamp;
         tweet.topic = topic;
